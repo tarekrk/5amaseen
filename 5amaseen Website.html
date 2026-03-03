@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5AMASEEN</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap">
+    <style>
+        :root {
+            --bg: #03070b; 
+            --text: #e0e0e0;
+            --accent-green: #0b992a; 
+            --ramad-magenta: #bc2d8a; 
+            --font-main: 'Inter', sans-serif;
+            --font-mono: 'Menlo', 'Courier学习', 'Courier New', monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            background-image: linear-gradient(180deg, rgba(188, 45, 138, 0.02) 0%, rgba(3, 7, 11, 1) 100%);
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3BaseFilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.6' numOctaves='3' stitchTiles='stitch'/%3E%3C/feTurbulence%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        nav {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            padding: 2.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            z-index: 900;
+            background: linear-gradient(to bottom, var(--bg) 10%, transparent);
+        }
+
+        nav a {
+            color: var(--accent-green);
+            text-decoration: none;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        nav a:hover { color: var(--ramad-magenta); text-shadow: 0 0 5px rgba(188, 45, 138, 0.4); }
+
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 10%;
+        }
+
+        .loc-tag { font-family: var(--font-mono); font-size: 0.6rem; color: var(--ramad-magenta); margin-bottom: 2rem; letter-spacing: 0.4em; }
+        .hero-image { width: 100%; max-width: 750px; margin-bottom: 2rem; }
+        .hero-image img { width: 100%; border: 1px solid #1a1e22; display: block; }
+        h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; letter-spacing: -0.02em; color: #fff; }
+
+        section { max-width: 850px; margin: 0 auto; padding: 100px 20px; border-top: 1px solid #111; }
+        .section-id { font-family: var(--font-mono); color: var(--accent-green); font-size: 1rem; margin-bottom: 3.5rem; display: block; text-align: center; letter-spacing: 0.5em; }
+
+        /* BIOGRAPHY */
+        .bio-content { font-size: 1.05rem; font-weight: 300; line-height: 1.8; color: #ccc; text-align: justify; }
+
+        /* DISCOGRAPHY & SETS */
+        .cat-title { font-family: var(--font-mono); font-size: 0.7rem; color: var(--ramad-magenta); margin: 3rem 0 1rem; border-bottom: 1px solid #222; padding-bottom: 0.5rem; text-transform: uppercase; }
+        .music-table { font-family: var(--font-mono); width: 100%; margin-bottom: 1rem; }
+        .row { display: grid; grid-template-columns: 90px 1fr 180px 100px; padding: 1.2rem 0; border-bottom: 1px solid #0d1116; font-size: 0.75rem; align-items: center; }
+        
+        /* SETS SPECIFIC */
+        .set-title { color: #fff; font-weight: 600; }
+        .set-type { color: var(--accent-green); font-size: 0.6rem; margin-left: 10px; border: 1px solid #1a1e22; padding: 2px 6px; letter-spacing: 0.05em; font-weight: normal; }
+        .set-type.live { color: var(--ramad-magenta); border-color: rgba(188, 45, 138, 0.3); }
+
+        /* BUTTONS */
+        .bc-btn {
+            background-color: transparent;
+            color: var(--ramad-magenta);
+            border: 1px solid rgba(188, 45, 138, 0.4);
+            padding: 6px 14px;
+            text-decoration: none;
+            font-size: 0.6rem;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: inline-block;
+            cursor: pointer;
+        }
+        .bc-btn:hover { background-color: var(--ramad-magenta); color: #fff; box-shadow: 0 0 15px rgba(188, 45, 138, 0.3); transform: translateY(-1px); }
+
+        /* PRESS LINK HIGHLIGHT */
+        .press-links { display: flex; flex-direction: column; gap: 1.5rem; text-align: center; }
+        .press-item { text-decoration: none; color: #aaa; transition: 0.3s ease; padding: 15px; border-radius: 2px; }
+        .press-item:hover { color: var(--ramad-magenta); background: rgba(255,255,255,0.02); cursor: pointer; }
+        .press-item cite { display: block; font-size: 0.7rem; font-family: var(--font-mono); color: var(--accent-green); text-transform: uppercase; margin-top: 4px; }
+
+        /* AUDIO SERVICES */
+        .services-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; text-align: center; }
+        .service-tag { font-family: var(--font-mono); font-size: 0.7rem; color: #777; border: 1px solid #1a1e22; padding: 20px; text-transform: uppercase; transition: 0.3s; }
+        .service-tag:hover { color: #fff; border-color: var(--accent-green); }
+
+        /* CONTACT AREA */
+        .contact-area { text-align: center; }
+        .email-link { font-size: clamp(1.8rem, 5vw, 3rem); font-weight: 800; color: #fff; text-decoration: none; transition: 0.4s ease; cursor: pointer; }
+        .email-link:hover { color: var(--ramad-magenta); text-shadow: 0 0 10px rgba(188, 45, 138, 0.3); }
+
+        .nodes { margin-top: 4rem; display: flex; justify-content: center; gap: 3rem; }
+        .nodes a { color: var(--accent-green); text-decoration: none; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.15em; transition: 0.3s; cursor: pointer; }
+        .nodes a:hover { color: #fff; }
+
+        @media (max-width: 768px) {
+            .row { grid-template-columns: 1fr 1fr; gap: 10px; padding: 1.5rem 0; }
+            .col-lbl { display: none; }
+            .nodes { flex-direction: column; gap: 1.5rem; }
+            nav { gap: 1rem; padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#bio">IDENTITY</a>
+        <a href="#music">DISCOGRAPHY</a>
+        <a href="#sets">ARCHIVE</a>
+        <a href="#services">SERVICES</a>
+        <a href="#contact">CONTACT</a>
+    </nav>
+
+    <header>
+        <div class="loc-tag">BOLOGNA / ITALY</div>
+        <div class="hero-image">
+            <img src="../Images/5amaseen Live Kiosk.jpeg" alt="5amaseen Profile">
+        </div>
+        <h1>5AMASEEN</h1>
+    </header>
+
+    <section id="bio">
+        <span class="section-id">// 01_IDENTITY</span>
+        <div class="bio-content">
+            <p>The stage name of Egypt-born, and currently Brussels based Tarek Reda. Inspired by a wide range of genres including metal and bass music, he forges his sound between pounding kicks, quick percussive syncopated patterns, distorted break, with a touch of noise/glitch. In addition to some heavily distorted guitar riffs and the incorporation of odd time signatures, he is heavily inspired by the music of his birthplace. Influenced by mahraganat and folkloric music from Egypt and the rest of the Arab world, he aims to transcend the tasteless “fusion” between the known and the “exotic.” Instead, his sonic identity revolves around paying respect to the musical roots while simultaneously reimagining and giving form to them within a contemporary context. He is also part of the Ghent based collective Yalla Worldwide, sharing the stage with some of the most innovative Arab artists at the moment, such as BADER, 3Phaz, Hassan Abou Alam, and ZULI.</p>
+        </div>
+    </section>
+
+    <section id="music">
+        <span class="section-id">// 02_DISCOGRAPHY</span>
+        <div class="cat-title">SOLO_EP</div>
+        <div class="music-table">
+            <div class="row">
+                <span>2024</span>
+                <span style="color:#fff">RAMĀD (CINDERS)</span>
+                <span class="col-lbl">SAWNA RECORDS</span>
+                <span><a href="https://sawna.bandcamp.com/album/ram-d-cinders" target="_blank" class="bc-btn">BANDCAMP</a></span>
+            </div>
+        </div>
+        <div class="cat-title">VA_SINGLES</div>
+        <div class="music-table">
+            <div class="row">
+                <span>2024</span>
+                <span style="color:#fff">PERCONCUSSION</span>
+                <span class="col-lbl">ORACOOL</span>
+                <span><a href="https://oracool.bandcamp.com/track/perconcussion" target="_blank" class="bc-btn">BANDCAMP</a></span>
+            </div>
+            <div class="row">
+                <span>2025</span>
+                <span style="color:#fff">THE MOUNTAINS WOLVES</span>
+                <span class="col-lbl">LAMBRATECH</span>
+                <span><a href="https://lambratech.bandcamp.com/track/the-mountains-wolves" target="_blank" class="bc-btn">BANDCAMP</a></span>
+            </div>
+            <div class="row">
+                <span>2025</span>
+                <span style="color:#fff">KBEN GEEN RACIST (W/ BADER)</span>
+                <span class="col-lbl">MINUIT RAPIDE</span>
+                <span><a href="https://minuitrapide.bandcamp.com/track/kben-geen-racist" target="_blank" class="bc-btn">BANDCAMP</a></span>
+            </div>
+            <div class="row">
+                <span>2025</span>
+                <span style="color:#fff">G2TM</span>
+                <span class="col-lbl">GROS ŒUVRE</span>
+                <span><a href="https://grosoeuvrerecords.bandcamp.com/track/g2tm" target="_blank" class="bc-btn">BANDCAMP</a></span>
+            </div>
+            <div class="cat-title">COLLABS</div>
+            <div class="row">
+                <span> 2025</span>
+                <span style="color:#fff">Derna (W/ BADER)</span>
+                <span class="col-lbl">SAWNA RECORDS</span>
+                <span><a href="https://sawna.bandcamp.com/track/derna-feat-5amaseen" target="_blank" class="bc-btn">BANDCAMP</a></span>
+            </div>
+            <div class="row">
+                <span> 2023</span>
+                <span style="color:#fff">BELGIUM ON SPEED (W/ BADER)</span>
+                <span class="col-lbl">SELF-RELEASE</span>
+                <span><a href="https://bader1.bandcamp.com/track/belgium-on-speed-bader-ft-5amaseen" target="_blank" class="bc-btn">BANDCAMP</a></span>
+            </div>
+        </div>
+    </section>
+
+    <section id="sets">
+        <span class="section-id">// 03_BROADCAST_ARCHIVE</span>
+        
+        <div class="cat-title">KIOSK RADIO</div>
+        <div class="music-table">
+            <div class="row">
+                <span>SEP 2024</span>
+                <span class="set-title">Yalla x Sawna w/ 5amaseen <span class="set-type">DJ SET</span></span>
+                <span class="col-lbl">BRUSSELS</span>
+                <span><a href="https://www.youtube.com/watch?v=DEyT0o4Kd8M" target="_blank" class="bc-btn">LISTEN</a></span>
+            </div>
+            <div class="row">
+                <span>MAY 2024</span>
+                <span class="set-title">Yalla Worldwide w/ 5amaseen <span class="set-type">DJ SET</span></span>
+                <span class="col-lbl">BRUSSELS</span>
+                <span><a href="https://www.youtube.com/watch?v=l_sr9w3aPik" target="_blank" class="bc-btn">LISTEN</a></span>
+            </div>
+            <div class="row">
+                <span>FEB 2024</span>
+                <span class="set-title">Yalla Worldwide w/ 5amaseen (live) <span class="set-type live">LIVE SET</span></span>
+                <span class="col-lbl">BRUSSELS</span>
+                <span><a href="https://www.youtube.com/watch?v=m1eh5To4yYw" target="_blank" class="bc-btn">LISTEN</a></span>
+            </div>
+            <div class="row">
+                <span>SEP 2023</span>
+                <span class="set-title">Yalla x Balaclava w/ u4, 5amaseen, BADER <span class="set-type">DJ SET</span></span>
+                <span class="col-lbl">BRUSSELS</span>
+                <span><a href="https://www.youtube.com/watch?v=EUR_g191m78" target="_blank" class="bc-btn">LISTEN</a></span>
+            </div>
+        </div>
+
+        <div class="cat-title">GIMIC RADIO</div>
+        <div class="music-table">
+            <div class="row">
+                <span>JAN 2025</span>
+                <span class="set-title">Yalla Worldwide w/ 5AMASEEN B2B BADER <span class="set-type">DJ SET</span></span>
+                <span class="col-lbl">BRUSSELS</span>
+                <span><a href="https://www.youtube.com/watch?v=NGWAh7unpVc" target="_blank" class="bc-btn">LISTEN</a></span>
+            </div>
+            <div class="row">
+                <span>NOV 2024</span>
+                <span class="set-title">5AMASEEN @ GIMIC <span class="set-type">DJ SET</span></span>
+                <span class="col-lbl">BRUSSELS</span>
+                <span><a href="https://www.youtube.com/live/hUm-489RfdY" target="_blank" class="bc-btn">LISTEN</a></span>
+            </div>
+            <div class="row">
+                <span>OCT 2024</span>
+                <span class="set-title">5AMASEEN @ GIMIC (Live)<span class="set-type live">LIVE SET</span></span>
+                <span class="col-lbl">BRUSSELS</span>
+                <span><a href="https://www.youtube.com/watch?v=-q9W4NDYDe8" target="_blank" class="bc-btn">LISTEN</a></span>
+            </div>
+        </div>
+        <div class="cat-title">RADIO FLOUKA</div>
+        <div class="music-table">
+            <div class="row">
+                <span>NOV 2023</span>
+                <span class="set-title">B2B BADER B2B D3MOR B2B 3XOJ <span class="set-type">DJ SET</span></span>
+                <span class="col-lbl">PARIS</span>
+                <span><a href="https://www.youtube.com/watch?v=FqmoD_w1qMY" target="_blank" class="bc-btn">LISTEN</a></span>
+            </div>
+            <div class="row">
+                <span>DEC 2024</span>
+                <span class="set-title">saHHara - سَهّارة takeover: 5amaseen <span class="set-type">DJ SET</span></span>
+                <span class="col-lbl">PARIS</span>
+                <span><a href="https://soundcloud.com/radioflouka/sahhara-sah-arh-takeover-5amaseen-16-12-2024" target="_blank" class="bc-btn">LISTEN</a></span>
+            </div>
+            </div>  
+        <div class="cat-title">ESR RADIO</div>
+        <div class="music-table">
+            <div class="row">
+                <span>FEB 2026</span>
+                <span class="set-title">Zamaan w/ 5amaseen <span class="set-type">DJ SET</span></span>
+                <span class="col-lbl">LISBON</span>
+                <span><a href="https://www.youtube.com/watch?v=HXrzTUoQGMo" target="_blank" class="bc-btn">LISTEN</a></span>
+            </div>
+        </div>
+
+        
+        </div>
+    </section>
+
+    <section id="press">
+        <span class="section-id">// 04_PRESS</span>
+        <div class="press-links">
+            <a href="https://scenenoise.com/New-Music/Egyptian-DJ-5amaseen-Drops-Gritty-DnB-EP-Ram-d-Cinders" class="press-item" target="_blank">
+                "Egyptian DJ 5amaseen Drops Gritty DnB EP ‘Ramād (Cinders)’"
+                <cite>Scene Noise</cite>
+            </a>
+            <a href="https://ra.co/dj/5amaseen" class="press-item" target="_blank">
+                Artist Profile & Live Archive
+                <cite>Resident Advisor</cite>
+            </a>
+        </div>
+    </section>
+
+    <section id="services">
+        <span class="section-id">// 05_AUDIO_SERVICES</span>
+        <div class="services-list">
+            <div class="service-tag">Sound Design</div>
+            <div class="service-tag">Sound Tracking</div>
+            <div class="service-tag">Mixing</div>
+            <div class="service-tag">Mastering</div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <span class="section-id">// 06_CONTACT</span>
+        <div class="contact-area">
+            <a href="mailto:tarekramohamed@gmail.com" class="email-link">DIRECT_MAIL</a>
+            <div class="nodes">
+                <a href="https://www.instagram.com/5amaseen/" target="_blank">INSTAGRAM</a>
+                <a href="https://ra.co/dj/5amaseen" target="_blank">RESIDENT ADVISOR</a>
+                 <a href="https://www.soundcloud.com/5amaseen/" target="_blank">SOUNDCLOUD</a>
+                <a href="https://www.upscrolled.com/5amaseen/" target="_blank">UPSCROLLED</a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
