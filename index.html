@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>5AMASEEN | Yalla Soundsystem - SAWNA Records</title>
+    <title>5AMASEEN</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap">
     <style>
         :root {
@@ -73,6 +73,28 @@
         .hero- { width: 100%; max-width: 750px; margin-bottom: 2rem; }
         .hero- img { width: 100%; border: 1px solid #1a1e22; display: block; }
         h1 { font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 800; letter-spacing: -0.02em; color: #fff; }
+        .subtitle { 
+            display: block; 
+            font-family: var(--font-main);
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 800;
+            color: #fff; 
+            letter-spacing: -0.02em;
+            margin-top: 0.5rem; 
+            text-transform: none;
+        }
+
+        .header-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .header-logos img {
+            height: 250px;
+        }
 
         section { max-width: 850px; margin: 0 auto; padding: 100px 20px; border-top: 1px solid #111; }
         .section-id { font-family: var(--font-mono); color: var(--accent-green); font-size: 1rem; margin-bottom: 3.5rem; display: block; text-align: center; letter-spacing: 0.5em; }
@@ -155,22 +177,24 @@
             }
             .row > span:nth-child(1), .portfolio-row > span:nth-child(1) { order: 2; font-size: 0.7rem; color: #777; } /* Year/Artist */
             .row > span:nth-child(2), .portfolio-row > span:nth-child(2) { order: 1; width: 100%; color: #fff; font-weight: 600; margin-bottom: 0.25rem; } /* Title */
-            .row > span:nth-child(3), .portfolio-row > span:nth-child(3) { order: 3; font-size: 0.7rem; color: #777; } /* Label/Location */
+            .row > span:nth-child(3), .portfolio-row > span:nth-child(3) { order: 3; font-size: 0.7rem; color: #777; flex-basis: 100%; } /* Label/Location - Allow wrapping */
             .row > span:nth-child(4), .portfolio-row > span:nth-child(4) { order: 4; } /* Button */
-
-            .row > span:nth-child(1)::after {
-                content: " / ";
-                white-space: pre;
-            }
+            .row > span:nth-child(1)::after { content: " / "; white-space: pre; }
 
             .col-lbl { display: inline; }
             .nodes { flex-direction: column; gap: 1.5rem; }
             nav { gap: 1rem; padding: 1.5rem; }
             .bio-content { text-align: left; }
+
+            .header-logos {
+                gap: 2rem;
+                margin-top: 1.5rem;
+            }
+            .header-logos img {
+                height: 120px;
+            }
         }
     </style>
-    <script data-goatcounter="https://5amaseen.goatcounter.com/count"
-        async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 
@@ -187,7 +211,12 @@
         <div class="hero-">
             <img src="Images/5amaseen Live Kiosk.jpeg" alt="5amaseen Profile">
         </div>
-        <h1>5AMASEEN</h1>
+                <h1>5AMASEEN <span class="subtitle">Yalla Soundsystem - SAWNA Records</span></h1>
+        <div class="header-logos">
+            <img src="Images/Yalla Soundsystem Logo.png" alt="Yalla Soundsystem">
+            <img src="Images/SAWNA Logo.png" alt="SAWNA Records">
+        </div>
+    </header>
     </header>
 
     <section id="bio">
@@ -444,6 +473,18 @@
                     <span><a href="https://sawna.bandcamp.com/album/speed-runner" target="_blank" class="bc-btn">LISTEN</a></span>
                 </div>
             </div>
+        </div>
+    </section>
+
+        <section id="contact">
+        <span class="section-id">// 05_CONTACT</span>
+        <div class="contact-area">
+            <a href="mailto:5amaseen@gmail.com" class="email-link">5amaseen@gmail.com</a>
+        </div>
+        <div class="nodes">
+            <a href="https://www.instagram.com/5amaseen" target="_blank">INSTAGRAM</a>
+            <a href="https://soundcloud.com/5amaseen" target="_blank">SOUNDCLOUD</a>
+            <a href="https://5amaseen.bandcamp.com/" target="_blank">BANDCAMP</a>
         </div>
     </section>
 
