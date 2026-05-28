@@ -84,6 +84,7 @@
         .cat-title { font-family: var(--font-mono); font-size: 0.7rem; color: var(--ramad-magenta); margin: 3rem 0 1rem; border-bottom: 1px solid #222; padding-bottom: 0.5rem; text-transform: uppercase; }
         .music-table { font-family: var(--font-mono); width: 100%; margin-bottom: 1rem; }
         .row { display: grid; grid-template-columns: 90px 1fr 180px 100px; padding: 1.2rem 0; border-bottom: 1px solid #0d1116; font-size: 0.75rem; align-items: center; }
+        .portfolio-row { grid-template-columns: 1.5fr 1fr 180px 100px; }
         
         /* SETS SPECIFIC */
         .set-title { color: #fff; font-weight: 600; }
@@ -125,6 +126,24 @@
         .nodes a { color: var(--accent-green); text-decoration: none; font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.15em; transition: 0.3s; cursor: pointer; }
         .nodes a:hover { color: #fff; }
 
+        .collapsible {
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .collapsible:hover {
+            color: #fff;
+        }
+        .collapsible.active {
+            color: var(--accent-green);
+        }
+        .content {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            background-color: transparent;
+        }
+
         @media (max-width: 768px) {
             .row { grid-template-columns: 1fr 1fr; gap: 10px; padding: 1.5rem 0; }
             .col-lbl { display: none; }
@@ -132,6 +151,8 @@
             nav { gap: 1rem; padding: 1.5rem; }
         }
     </style>
+    <script data-goatcounter="https://5amaseen.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 
@@ -326,11 +347,85 @@
 
     <section id="services">
         <span class="section-id">// 05_AUDIO_SERVICES</span>
-        <div class="services-list">
+        <div class="services-list" style="margin-bottom: 3rem;">
             <div class="service-tag">Sound Design</div>
             <div class="service-tag">Sound Tracking</div>
             <div class="service-tag">Mixing</div>
             <div class="service-tag">Mastering</div>
+        </div>
+
+        <div class="bio-content" style="text-align: center; margin-bottom: 3rem;">All tracks produced by 5amaseen are self-mixed.</div>
+
+        <div class="cat-title collapsible">MIXING & MASTERING</div>
+        <div class="content">
+            <div class="music-table">
+                <div class="row portfolio-row">
+                    <span>STANISLAWA & Disjoli</span>
+                    <span style="color:#fff">Lucky Star</span>
+                    <span class="col-lbl">SELF-RELEASE</span>
+                    <span><a href="https://soundcloud.com/stanislawa/disjoli-stanislawa-lucky-star" target="_blank" class="bc-btn">LISTEN</a></span>
+                </div>
+                <div class="row portfolio-row">
+                    <span>STANISLAWA</span>
+                    <span style="color:#fff">WORK (EDIT)</span>
+                    <span class="col-lbl">SELF-RELEASE</span>
+                    <span><a href="https://soundcloud.com/stanislawa/work-edit" target="_blank" class="bc-btn">LISTEN</a></span>
+                </div>
+                <div class="row portfolio-row">
+                    <span>Thawra</span>
+                    <span style="color:#fff">Matryoshka</span>
+                    <span class="col-lbl">SELF-RELEASE</span>
+                    <span><a href="https://www.youtube.com/watch?v=bDnoboq94wQ" target="_blank" class="bc-btn">LISTEN</a></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="cat-title collapsible">MIXING</div>
+        <div class="content">
+            <div class="music-table">
+                <div class="row portfolio-row">
+                    <span>BADER</span>
+                    <span style="color:#fff">CLASH EP (Tracks 1, 3, 4, 5)</span>
+                    <span class="col-lbl">SAWNA RECORDS</span>
+                    <span><a href="https://sawna.bandcamp.com/album/clash-ep" target="_blank" class="bc-btn">LISTEN</a></span>
+                </div>
+                <div class="row portfolio-row">
+                    <span>BADER</span>
+                    <span style="color:#fff">On Speed EP (Tracks 1, 3)</span>
+                    <span class="col-lbl">SELF-RELEASE</span>
+                    <span><a href="https://bader1.bandcamp.com/album/on-speed" target="_blank" class="bc-btn">LISTEN</a></span>
+                </div>
+                <div class="row portfolio-row">
+                    <span>BADER X ALSHARQI</span>
+                    <span style="color:#fff">BAB HADID</span>
+                    <span class="col-lbl">SELF-RELEASE</span>
+                    <span><a href="https://bader1.bandcamp.com/track/bader-x-alsharqi-bab-hadid" target="_blank" class="bc-btn">LISTEN</a></span>
+                </div>
+                <div class="row portfolio-row">
+                    <span>Yalla Soundsystem ft. Jabo</span>
+                    <span style="color:#fff">Panos</span>
+                    <span class="col-lbl">FLOUKA RECORDS</span>
+                    <span><a href="https://floukarecords.bandcamp.com/track/panos" target="_blank" class="bc-btn">LISTEN</a></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="cat-title collapsible">MASTERING</div>
+        <div class="content">
+            <div class="music-table">
+                <div class="row portfolio-row">
+                    <span>BADER</span>
+                    <span style="color:#fff">Libya on Speed - the remix album (Tracks 1, 4)</span>
+                    <span class="col-lbl">SAWNA RECORDS</span>
+                    <span><a href="https://sawna.bandcamp.com/album/libya-on-speed-the-remix" target="_blank" class="bc-btn">LISTEN</a></span>
+                </div>
+                <div class="row portfolio-row">
+                    <span>Jabo</span>
+                    <span style="color:#fff">Speed Runner EP (Tracks 1, 2, 3)</span>
+                    <span class="col-lbl">SAWNA RECORDS</span>
+                    <span><a href="https://sawna.bandcamp.com/album/speed-runner" target="_blank" class="bc-btn">LISTEN</a></span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -346,6 +441,23 @@
             </div>
         </div>
     </section>
+
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.maxHeight){
+                    content.style.maxHeight = null;
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                } 
+            });
+        }
+    </script>
 
 </body>
 </html>
